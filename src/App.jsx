@@ -63,7 +63,7 @@ function App() {
     
     // Load the 3D model from Sketchfab
     // Replace this URL with your actual model URL from Sketchfab
-    const modelUrl = 'public/130.glb';
+    const modelUrl = '130.glb';
     
     const loader = new GLTFLoader();
     setLoading(true);
