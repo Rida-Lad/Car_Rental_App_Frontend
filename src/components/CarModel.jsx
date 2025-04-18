@@ -3,44 +3,46 @@ import { OrbitControls, useGLTF } from '@react-three/drei'
 
 function Model() {
   const gltf = useGLTF('/130.glb')
-  return <primitive object={gltf.scene} scale={0.5} />
+  return (
+    <primitive 
+      object={gltf.scene} 
+      scale={0.5} // Adjust this number to match your model size
+    />
+  )
 }
 
 export default function CarModel() {
   return (
     <div style={{ 
       width: '600px', 
-      height: '450px', // Updated height
+      height: '450px',
       margin: 'auto'
     }}>
       <Canvas
-        camera={{ position: [2, 2, 5], fov: 50 }}
+        camera={{ position: [5, 5, 5], fov: 50 }}
         style={{ width: '100%', height: '100%' }}
       >
-        {/* Improved Lighting Setup */}
+        {/* Simple but effective lighting */}
         <ambientLight intensity={1.5} />
-        <pointLight position={[5, 5, 5]} intensity={2} />
         <directionalLight
-          position={[10, 10, 5]}
-          intensity={3}
+          position={[5, 5, 5]}
+          intensity={2}
           castShadow
         />
-        <hemisphereLight intensity={1} />
 
-        {/* Model & Controls */}
+        {/* Model */}
         <Model />
-        <OrbitControls 
-          enableZoom={true}
-          autoRotate={true}
-          autoRotateSpeed={2}
-          maxPolarAngle={Math.PI / 2}
+
+        {/* Controls - only rotation allowed */}
+        <OrbitControls
+          enableZoom={false} // Disable zoom
+          autoRotate={false} // Disable auto-rotation
+          minPolarAngle={Math.PI/6} // Limit vertical rotation
+          maxPolarAngle={Math.PI/2} // Keep model upright
         />
 
-        {/* Add ground plane for better lighting reflection */}
-        <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -1, 0]}>
-          <planeGeometry args={[20, 20]} />
-          <meshStandardMaterial color="#808080" />
-        </mesh>
+        {/* Add subtle background */}
+        <color attach="background" args={['#f0f0f0']} />
       </Canvas>
     </div>
   )
