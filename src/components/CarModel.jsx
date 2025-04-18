@@ -2,7 +2,7 @@ import { Canvas } from '@react-three/fiber'
 import { OrbitControls, useGLTF } from '@react-three/drei'
 
 function Model() {
-    const gltf = useGLTF('/130.Glb')
+    const gltf = useGLTF('/130.glb')
     return <primitive object={gltf.scene} scale={1.2} />
 }
 
