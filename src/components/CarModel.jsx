@@ -6,7 +6,8 @@ function Model() {
   return (
     <primitive 
       object={gltf.scene} 
-      scale={0.5} // Adjust this number to match your model size
+      scale={0.9} // Increased scale
+      rotation={[0, Math.PI / 4, 0]} // Initial angled rotation
     />
   )
 }
@@ -16,33 +17,39 @@ export default function CarModel() {
     <div style={{ 
       width: '600px', 
       height: '450px',
-      margin: 'auto'
+      margin: 'auto',
+      background: 'transparent' // No background
     }}>
       <Canvas
-        camera={{ position: [5, 5, 3], fov: 50 }}
+        camera={{ position: [3, 2, 5], fov: 50 }}
         style={{ width: '100%', height: '100%' }}
       >
-        {/* Simple but effective lighting */}
-        <ambientLight intensity={1.5} />
+        {/* Dramatic Lighting Setup */}
+        <ambientLight intensity={0.8} />
         <directionalLight
-          position={[5, 5, 5]}
-          intensity={2}
-          castShadow
+          position={[10, 10, 10]}
+          intensity={1.5}
+          color="#ffffff"
+        />
+        <directionalLight
+          position={[-10, 10, -10]}
+          intensity={0.8}
+          color="#444444"
+        />
+        <hemisphereLight
+          intensity={0.5}
+          groundColor="#000000"
         />
 
-        {/* Model */}
         <Model />
 
-        {/* Controls - only rotation allowed */}
         <OrbitControls
-          enableZoom={false} // Disable zoom
-          autoRotate={false} // Disable auto-rotation
-          minPolarAngle={Math.PI/6} // Limit vertical rotation
-          maxPolarAngle={Math.PI/2} // Keep model upright
+          enableZoom={false}
+          autoRotate={false}
+          minPolarAngle={Math.PI/6}
+          maxPolarAngle={Math.PI/2}
+          enablePan={false}
         />
-
-        {/* Add subtle background */}
-        <color attach="background" args={['#f0f0f0']} />
       </Canvas>
     </div>
   )
