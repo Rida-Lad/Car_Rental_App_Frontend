@@ -8,6 +8,7 @@ import CarModel from './components/CarModel';
           <p className="text-lg text-gray-700">
             A simple application to view and interact with 3D models.
           </p>
+          <CarModel/>
         </div>
       );
     }
