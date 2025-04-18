@@ -1,4 +1,5 @@
 import React from 'react';
+import CarModel from './components/CarModel';
 
     function App() {
       return (
