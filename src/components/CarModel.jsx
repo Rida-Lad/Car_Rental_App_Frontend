@@ -18,7 +18,7 @@ export default function CarModel() {
   return (
     <div style={{ 
       width: '600px', 
-      height: '700px',
+      height: '450px',
       margin: 'auto',
       border: '1px solid #ccc' // Optional border for visibility
     }}>
