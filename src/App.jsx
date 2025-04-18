@@ -1,5 +1,5 @@
 import React from 'react';
-import CarModel from './components/CarModel';
+// import CarModel from './components/CarModel';
 
     function App() {
       return (
@@ -8,7 +8,7 @@ import CarModel from './components/CarModel';
           <p className="text-lg text-gray-700">
             A simple application to view and interact with 3D models.
           </p>
-          <CarModel/>
+          {/* <CarModel/> */}
         </div>
       );
     }
