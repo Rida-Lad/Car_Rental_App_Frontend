@@ -20,7 +20,6 @@ export default function CarModel() {
       width: '600px', 
       height: '450px',
       margin: 'auto',
-      border: '1px solid #ccc' // Optional border for visibility
     }}>
       <Canvas
         camera={{ position: [0, 0, 5], fov: 50 }}
