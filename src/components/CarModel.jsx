@@ -21,7 +21,7 @@ export default function CarModel() {
       background: 'transparent' // No background
     }}>
       <Canvas
-        camera={{ position: [3, 2, 5], fov: 50 }}
+        camera={{ position: [3, 2, 0], fov: 50 }}
         style={{ width: '100%', height: '100%' }}
       >
         {/* Dramatic Lighting Setup */}
