@@ -19,7 +19,7 @@ export default function CarModel() {
       margin: 'auto'
     }}>
       <Canvas
-        camera={{ position: [5, 5, 5], fov: 50 }}
+        camera={{ position: [5, 5, 3], fov: 50 }}
         style={{ width: '100%', height: '100%' }}
       >
         {/* Simple but effective lighting */}
