@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+import CarModel from './components/CarModel';
 
 function App() {
   const [username, setUsername] = useState('');
