@@ -17,21 +17,10 @@ const Car3DModel = () => {
 
 const CarModel = () => {
     return (
-        <div>
-            <h1>Car Model</h1>
-            <p>Welcome to the Car Model page. Here you can find details about various car models available for rent.</p>
-            <Canvas>
-                <ambientLight intensity={1} />
-                <directionalLight position={[10, 10, 5]} intensity={1.5} />
-                <hemisphereLight intensity={0.6} groundColor="white" />
-                <OrbitControls 
-                    enableZoom={false} 
-                    maxPolarAngle={Math.PI / 2} 
-                    minPolarAngle={Math.PI / 2} 
-                />
-                <Car3DModel />
-            </Canvas>
-        </div>
+        <Canvas>
+            <OrbitControls />
+            <Car3DModel />
+        </Canvas>
     );
 };
 
