@@ -1,14 +1,9 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import AddCar from './pages/AddCar';
-import CarsList from './pages/CarsList';
+import React from 'react';
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<CarsList />} />
-        <Route path="/admin/addcar" element={<AddCar />} />
-      </Routes>
-    </Router>
+    <div  >
+      <h1 style={{ textAlign: 'center' }}>Car Rental App</h1>
+    </div>
   );
 }
 
