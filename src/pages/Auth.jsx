@@ -17,7 +17,8 @@ const Auth = () => {
       
       if (isLogin) {
         localStorage.setItem('token', response.data.token);
-        navigate(location.state?.from || '/');
+        const redirectPath = location.state?.from || '/';
+        navigate(redirectPath);
       } else {
         alert('Registration successful! Please login.');
         setIsLogin(true);
