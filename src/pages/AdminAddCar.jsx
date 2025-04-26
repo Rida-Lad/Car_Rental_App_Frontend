@@ -14,16 +14,21 @@ export default function AdminAddCar() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const formData = new FormData();
+    formData.append('model', formDataState.model);
+    formData.append('description', formDataState.description);
+    formData.append('price_per_day', formDataState.price_per_day);
+    formData.append('image', formDataState.image);
+
     const res = await fetch('http://localhost:5000/api/admin/addcar', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
         'Authorization': `Bearer ${user.token}`
       },
-      body: JSON.stringify(formData)
+      body: formData
     });
-    
-    if(res.ok) navigate('/admin/setavailable');
+
+    if (res.ok) navigate('/admin/setavailable');
   };
 
   return (
@@ -51,11 +56,11 @@ export default function AdminAddCar() {
           onChange={(e) => setFormData({ ...formData, price_per_day: e.target.value })}
         />
         <input
-          type="url"
-          placeholder="Image URL"
+          type="file"
+          accept="image/*"
+          onChange={(e) => setFormDataState({ ...formDataState, image: e.target.files[0] })}
           className="w-full p-2 border rounded"
-          value={formData.image_url}
-          onChange={(e) => setFormData({ ...formData, image_url: e.target.value })}
+          required
         />
         <button
           type="submit"
