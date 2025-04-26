@@ -35,7 +35,7 @@ const CarsList = () => {
 
 return (
     <div className="container mx-auto px-4 py-8">
-        <div className="mb-6 flex flex-col md:flex-row gap-4">
+        <div className="mb-6 flex flex-col md:flex-row gap-4">    
             <input
                 type="text"
                 placeholder="Search by car name..."
