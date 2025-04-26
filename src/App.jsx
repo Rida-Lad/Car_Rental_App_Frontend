@@ -3,6 +3,7 @@ import AddCar from './pages/AddCar';
 import CarsList from './pages/CarsList';
 import CarDetails from './pages/CarDetails';
 import Auth from './pages/Auth';
+import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
   return (
