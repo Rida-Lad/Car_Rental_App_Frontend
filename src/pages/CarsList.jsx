@@ -66,7 +66,8 @@ const CarsList = () => {
                 ) : (
                     filteredCars.map(car => (
                         <Link
-                            to={`/cardetails/${car.id}`}
+                            to={localStorage.getItem('token') ? `/cardetails/${car.id}` : '/auth'}
+                            state={{ from: `/cardetails/${car.id}` }}
                             key={car.id}
                         >
                             <div key={car.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
