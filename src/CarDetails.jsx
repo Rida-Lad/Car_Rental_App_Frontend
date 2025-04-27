@@ -22,7 +22,7 @@ function CarDetails() {
             <h1 className="text-2xl font-bold text-gray-800 mb-4">{car.make} {car.model}</h1>
             <p className="text-gray-600 mb-2"><span className="font-semibold">Year:</span> {car.year}</p>
             <p className="text-gray-600 mb-4"><span className="font-semibold">Price:</span> {car.price}</p>
-            {user && <p className="text-blue-600 font-medium">Welcome, {user.username}!</p>}
+            {user && <p className="text-blue-600 font-medium">Welcome, {user.username} !</p>}
         </div>
     );
 }
