@@ -10,19 +10,25 @@ const carData = {
 
 function CarDetails() {
   const { id } = useParams();
-  const { user } = useAuth();
+  const { user, isAuthenticated } = useAuth();
   const car = carData[id];
 
   if (!car) {
-    return <div>Car not found</div>;
+    return <div className="error">Car not found</div>;
   }
 
   return (
-    <div>
+    <div className="car-details">
       <h1>{car.make} {car.model}</h1>
-      <p>Year: {car.year}</p>
-      <p>Price: {car.price}</p>
-      {user && <p>Welcome, {user.username}!</p>}
+      <div className="car-specs">
+        <p><strong>Year:</strong> {car.year}</p>
+        <p><strong>Price:</strong> {car.price}</p>
+      </div>
+      {isAuthenticated && user && (
+        <div className="user-greeting">
+          <p>Welcome back, <strong>{user.username}</strong>!</p>
+        </div>
+      )}
     </div>
   );
 }

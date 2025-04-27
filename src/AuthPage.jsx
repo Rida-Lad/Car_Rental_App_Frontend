@@ -4,22 +4,31 @@ import { useAuth } from './AuthContext';
 
 function AuthPage() {
   const [isLogin, setIsLogin] = useState(true);
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [formData, setFormData] = useState({
+    username: '',
+    password: ''
+  });
   const [error, setError] = useState('');
   const { login } = useAuth();
   const navigate = useNavigate();
 
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
-    
+
     try {
       const endpoint = isLogin ? '/api/login' : '/api/signup';
       const response = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify(formData),
       });
 
       const data = await response.json();
@@ -28,46 +37,57 @@ function AuthPage() {
         throw new Error(data.message || 'Authentication failed');
       }
 
-      // Store the user data including username
-      login({ 
-        username: data.username, 
-        isAdmin: data.isAdmin,
-        token: data.token 
+      // Store the complete user data
+      login({
+        username: formData.username,
+        token: data.token,
+        isAdmin: data.isAdmin || false
       });
-      
-      // Redirect to home page after successful login
+
+      // Redirect to home page
       navigate('/');
     } catch (err) {
       setError(err.message);
+      console.error('Auth error:', err);
     }
   };
 
   return (
-    <div>
+    <div className="auth-container">
       <h1>{isLogin ? 'Login' : 'Sign Up'}</h1>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {error && <div className="error-message">{error}</div>}
       <form onSubmit={handleSubmit}>
-        <div>
-          <label>Username:</label>
-          <input 
-            type="text" 
-            value={username} 
-            onChange={(e) => setUsername(e.target.value)} 
-            required 
+        <div className="form-group">
+          <label htmlFor="username">Username:</label>
+          <input
+            id="username"
+            name="username"
+            type="text"
+            value={formData.username}
+            onChange={handleChange}
+            required
           />
         </div>
-        <div>
-          <label>Password:</label>
-          <input 
-            type="password" 
-            value={password} 
-            onChange={(e) => setPassword(e.target.value)} 
-            required 
+        <div className="form-group">
+          <label htmlFor="password">Password:</label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            value={formData.password}
+            onChange={handleChange}
+            required
           />
         </div>
-        <button type="submit">{isLogin ? 'Login' : 'Sign Up'}</button>
+        <button type="submit" className="auth-button">
+          {isLogin ? 'Login' : 'Sign Up'}
+        </button>
       </form>
-      <button onClick={() => setIsLogin(!isLogin)}>
+      <button 
+        type="button" 
+        className="toggle-auth"
+        onClick={() => setIsLogin(!isLogin)}
+      >
         {isLogin ? 'Need to create an account?' : 'Already have an account?'}
       </button>
     </div>
