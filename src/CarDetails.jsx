@@ -9,22 +9,22 @@ const carData = {
 };
 
 function CarDetails() {
-  const { id } = useParams();
-  const { user } = useAuth();
-  const car = carData[id];
+    const { id } = useParams();
+    const { user } = useAuth();
+    const car = carData[id];
 
-  if (!car) {
-    return <div>Car not found</div>;
-  }
+    if (!car) {
+        return <div className="text-center text-red-500 font-bold mt-10">Car not found</div>;
+    }
 
-  return (
-    <div>
-      <h1>{car.make} {car.model}</h1>
-      <p>Year: {car.year}</p>
-      <p>Price: {car.price}</p>
-      {user && <p>Welcome, {user.username}!</p>}
-    </div>
-  );
+    return (
+        <div className="max-w-2xl mx-auto mt-10 p-6 bg-white shadow-md rounded-lg">
+            <h1 className="text-2xl font-bold text-gray-800 mb-4">{car.make} {car.model}</h1>
+            <p className="text-gray-600 mb-2"><span className="font-semibold">Year:</span> {car.year}</p>
+            <p className="text-gray-600 mb-4"><span className="font-semibold">Price:</span> {car.price}</p>
+            {user && <p className="text-blue-600 font-medium">Welcome, {user.username}!</p>}
+        </div>
+    );
 }
 
 export default CarDetails;
