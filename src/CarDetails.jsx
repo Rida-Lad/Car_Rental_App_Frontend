@@ -17,20 +17,20 @@ function CarDetails() {
     return <div className="error">Car not found</div>;
   }
 
-  return (
-    <div className="car-details">
-      <h1>{car.make} {car.model}</h1>
-      <div className="car-specs">
-        <p><strong>Year:</strong> {car.year}</p>
-        <p><strong>Price:</strong> {car.price}</p>
-      </div>
-      {isAuthenticated && user && (
-        <div className="user-greeting">
-          <p>Welcome back, <strong>{user.username}</strong>!</p>
+return (
+    <div className="car-details" style={{ padding: '20px', fontFamily: 'Arial, sans-serif', color: '#333' }}>
+        <h1 style={{ fontSize: '24px', marginBottom: '10px' }}>{car.make} {car.model}</h1>
+        <div className="car-specs" style={{ marginBottom: '15px' }}>
+            <p style={{ margin: '5px 0' }}><strong>Year:</strong> {car.year}</p>
+            <p style={{ margin: '5px 0' }}><strong>Price:</strong> {car.price}</p>
         </div>
-      )}
+        {isAuthenticated && user && (
+            <div className="user-greeting" style={{ backgroundColor: '#f9f9f9', padding: '10px', borderRadius: '5px' }}>
+                <p style={{ margin: 0 }}>Welcome back, <strong>{user.username}</strong>!</p>
+            </div>
+        )}
     </div>
-  );
+);
 }
 
 export default CarDetails;
