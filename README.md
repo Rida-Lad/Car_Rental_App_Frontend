@@ -6,6 +6,22 @@
 
 A full-stack car rental management system with authentication and real-time API integration.
 
+## Application Screenshots
+
+### User Interface
+<div align="center">
+  <img src="./public/user1.png" width="45%" alt="User Dashboard"/>
+  <img src="./public/user2.png" width="45%" alt="Car Listing"/> 
+  <img src="./public/user3.png" width="45%" alt="Order History"/>
+</div>
+
+### Admin Interface
+<div align="center">
+  <img src="./public/admin1.png" width="45%" alt="Car Management Console"/>
+  <img src="./public/admin2.png" width="45%" alt="Orders Overview"/>
+</div>
+
+
 ## Features
 - **Cookie-based Authentication** with Axios interceptors
 - **JWT Authentication** flow using `/api/me` endpoint
