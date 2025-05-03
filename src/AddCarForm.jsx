@@ -86,7 +86,7 @@ const AddCarForm = () => {
                             <label className="absolute left-6 -top-3.5 bg-white px-2 text-gray-500 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-4 peer-focus:-top-3.5 peer-focus:text-purple-800 peer-focus:text-sm">
                                 Vehicle Name
                             </label>
-                            {errors.name && <p className="text-red-500 text-sm mt-2">⚠️ {errors.name}</p>}
+                            {errors.name && <p className="text-red-500 text-sm mt-2"> {errors.name}</p>}
                         </div>
 
                         {/* Image Upload */}
@@ -105,7 +105,7 @@ const AddCarForm = () => {
                                 <p className="text-gray-600">
                                     {formData.image ? formData.image.name : 'Click to upload image'}
                                 </p>
-                                {errors.image && <p className="text-red-500 text-sm mt-2">⚠️ {errors.image}</p>}
+                                {errors.image && <p className="text-red-500 text-sm mt-2"> {errors.image}</p>}
                             </div>
                         </div>
 
@@ -123,7 +123,7 @@ const AddCarForm = () => {
                                 <label className="absolute left-6 -top-3.5 bg-white px-2 text-gray-500 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-4 peer-focus:-top-3.5 peer-focus:text-purple-800 peer-focus:text-sm">
                                     Current Price
                                 </label>
-                                {errors.new_price && <p className="text-red-500 text-sm mt-2">⚠️ {errors.new_price}</p>}
+                                {errors.new_price && <p className="text-red-500 text-sm mt-2"> {errors.new_price}</p>}
                             </div>
 
                             <div className="relative">
@@ -138,7 +138,7 @@ const AddCarForm = () => {
                                 <label className="absolute left-6 -top-3.5 bg-white px-2 text-gray-500 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-4 peer-focus:-top-3.5 peer-focus:text-purple-800 peer-focus:text-sm">
                                     Original Price (optional)
                                 </label>
-                                {errors.previous_price && <p className="text-red-500 text-sm mt-2">⚠️ {errors.previous_price}</p>}
+                                {errors.previous_price && <p className="text-red-500 text-sm mt-2"> {errors.previous_price}</p>}
                             </div>
                         </div>
 
@@ -156,7 +156,7 @@ const AddCarForm = () => {
                                 <label className="absolute left-6 -top-3.5 bg-white px-2 text-gray-500 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-4 peer-focus:-top-3.5 peer-focus:text-purple-800 peer-focus:text-sm">
                                     Manufacturer
                                 </label>
-                                {errors.brand && <p className="text-red-500 text-sm mt-2">⚠️ {errors.brand}</p>}
+                                {errors.brand && <p className="text-red-500 text-sm mt-2"> {errors.brand}</p>}
                             </div>
 
                             <div className="relative">
@@ -171,7 +171,7 @@ const AddCarForm = () => {
                                 <label className="absolute left-6 -top-3.5 bg-white px-2 text-gray-500 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-4 peer-focus:-top-3.5 peer-focus:text-purple-800 peer-focus:text-sm">
                                     Vehicle Class
                                 </label>
-                                {errors.category && <p className="text-red-500 text-sm mt-2">⚠️ {errors.category}</p>}
+                                {errors.category && <p className="text-red-500 text-sm mt-2"> {errors.category}</p>}
                             </div>
                         </div>
 
