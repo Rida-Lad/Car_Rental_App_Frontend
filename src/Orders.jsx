@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 
 const Orders = () => {
@@ -67,7 +67,7 @@ const Orders = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {orders.map(order => (
           <div key={order.id} className="border p-4 rounded shadow bg-white">
-            <img src={`http://localhost:5000/uploads/${order.image_url}`} alt={order.car_name} className="h-40 w-full object-cover mb-3 rounded" />
+            <img src={`http://localhost:5000${order.image_url}`} alt={order.car_name} className="h-40 w-full object-cover mb-3 rounded" />
             <h3 className="text-lg font-semibold">{order.car_name}</h3>
             <p>By: {order.username}</p>
             <p>Hours: {order.hours}</p>
